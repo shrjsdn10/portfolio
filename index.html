@@ -102,11 +102,13 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
 .meta-strip{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
 
 /* ---------- funnel ---------- */
-.funnel{margin-top:26px;display:flex;flex-direction:column;gap:4px}
-.fstep{display:grid;grid-template-columns:130px 1fr 70px;align-items:center;gap:12px}
-.fstep .fl{font-size:14px;font-weight:700;text-align:right;color:var(--ink)}
-.fstep .bar{height:48px;width:100%;background:linear-gradient(90deg,var(--brand),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12.5px}
-.fstep .fv{font-size:13px;font-weight:700;color:var(--brand-deep)}
+.pyfunnel{margin-top:26px;max-width:440px;margin-left:auto;margin-right:auto;display:flex;flex-direction:column;gap:3px}
+.pband{position:relative;height:52px}
+.pband i{position:absolute;inset:0}
+.pband span{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:#fff;font-weight:700;font-size:13px;line-height:1.25;text-align:center}
+.pband span b{font-size:11px;font-weight:700;opacity:.92}
+.pband.tip span{justify-content:flex-start;padding-top:6px;font-size:12px}
+.pband.tip span b{font-size:10.5px}
 .proj-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:start;margin-top:8px}
 .blocklist{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:14px}
 .blocklist li{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.55;font-weight:500}
@@ -202,9 +204,7 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
   .fit-req,.fit-my{border:none;border-radius:0}
   .fit-req{padding:12px 16px;font-size:13px;background:var(--soft);border-bottom:1px solid var(--line)}
   .fit-my{padding:12px 16px 14px;background:var(--brand-soft)}
-  .fstep{grid-template-columns:96px 1fr;gap:10px}
-  .fstep .fl{font-size:12px}
-  .fstep .fv{grid-column:2;padding-left:2px}
+  .pyfunnel{max-width:340px}
   .cover .contact{flex-direction:column}
 }
 @media (min-width:1024px){
@@ -352,13 +352,13 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
       </div>
       <div>
         <div class="sec-label">전환 퍼널</div>
-        <div class="funnel">
-          <div class="fstep"><span class="fl">광고 클릭</span><div class="bar" style="clip-path:polygon(0% 0,100% 0,93% 100%,7% 100%)"></div><span class="fv"></span></div>
-          <div class="fstep"><span class="fl">랜딩 방문</span><div class="bar" style="clip-path:polygon(7% 0,93% 0,83% 100%,17% 100%)"></div><span class="fv"></span></div>
-          <div class="fstep"><span class="fl">가격 확인</span><div class="bar" style="clip-path:polygon(17% 0,83% 0,72% 100%,28% 100%)"></div><span class="fv"></span></div>
-          <div class="fstep"><span class="fl">카카오톡 클릭</span><div class="bar" style="clip-path:polygon(28% 0,72% 0,64% 100%,36% 100%)"></div><span class="fv"></span></div>
-          <div class="fstep"><span class="fl">상담 문의</span><div class="bar" style="clip-path:polygon(36% 0,64% 0,58% 100%,42% 100%)">110건</div><span class="fv"></span></div>
-          <div class="fstep"><span class="fl">개통</span><div class="bar" style="clip-path:polygon(42% 0,58% 0,55% 100%,45% 100%)">20건</div><span class="fv"></span></div>
+        <div class="pyfunnel">
+          <div class="pband"><i style="background:#8ADDF8;clip-path:polygon(0% 0,100% 0,91.7% 100%,8.3% 100%)"></i><span>광고 클릭</span></div>
+          <div class="pband"><i style="background:#5FD0F5;clip-path:polygon(8.3% 0,91.7% 0,83.3% 100%,16.7% 100%)"></i><span>랜딩 방문</span></div>
+          <div class="pband"><i style="background:#35C5F0;clip-path:polygon(16.7% 0,83.3% 0,75% 100%,25% 100%)"></i><span>가격 확인</span></div>
+          <div class="pband"><i style="background:#14B4EA;clip-path:polygon(25% 0,75% 0,66.7% 100%,33.3% 100%)"></i><span>카카오톡 클릭</span></div>
+          <div class="pband"><i style="background:#0AA5D8;clip-path:polygon(33.3% 0,66.7% 0,58.3% 100%,41.7% 100%)"></i><span>상담 문의<b>110건</b></span></div>
+          <div class="pband tip" style="height:72px"><i style="background:#0887C2;clip-path:polygon(41.7% 0,58.3% 0,50% 100%)"></i><span>개통<b>20건</b></span></div>
         </div>
         <div class="kpis">
           <div class="kpi"><div class="n">110<small>건</small></div><div class="l">30일 상담 리드</div></div>
@@ -425,11 +425,11 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
       </div>
       <div>
         <div class="sec-label">랜딩 행동 퍼널 (최근 30일)</div>
-        <div class="funnel">
-          <div class="fstep"><span class="fl">랜딩 방문</span><div class="bar" style="clip-path:polygon(0% 0,100% 0,83% 100%,17% 100%)">24,541명</div><span class="fv">100%</span></div>
-          <div class="fstep"><span class="fl">가격확인 도착</span><div class="bar" style="clip-path:polygon(17% 0,83% 0,74% 100%,26% 100%)">10,591건</div><span class="fv">43.2%</span></div>
-          <div class="fstep"><span class="fl">랜딩 클릭</span><div class="bar" style="clip-path:polygon(26% 0,74% 0,63% 100%,37% 100%)">7,483회</div><span class="fv">30.5%</span></div>
-          <div class="fstep"><span class="fl">카카오톡 클릭</span><div class="bar" style="clip-path:polygon(37% 0,63% 0,59% 100%,41% 100%)">1,212건</div><span class="fv">4.9%</span></div>
+        <div class="pyfunnel">
+          <div class="pband" style="height:58px"><i style="background:#8ADDF8;clip-path:polygon(0% 0,100% 0,87.5% 100%,12.5% 100%)"></i><span>랜딩 방문<b>24,541명 · 100%</b></span></div>
+          <div class="pband" style="height:58px"><i style="background:#4CCBF3;clip-path:polygon(12.5% 0,87.5% 0,75% 100%,25% 100%)"></i><span>가격확인 도착<b>10,591건 · 43.2%</b></span></div>
+          <div class="pband" style="height:58px"><i style="background:#14B4EA;clip-path:polygon(25% 0,75% 0,62.5% 100%,37.5% 100%)"></i><span>랜딩 클릭<b>7,483회 · 30.5%</b></span></div>
+          <div class="pband tip" style="height:84px"><i style="background:#0887C2;clip-path:polygon(37.5% 0,62.5% 0,50% 100%)"></i><span>카카오톡 클릭<b>1,212건 · 4.9%</b></span></div>
         </div>
         <div class="connect">이탈이 큰 구간을 확인해 <b>랜딩 구성과 광고 메시지를 함께 개선</b>하는 근거로 사용했습니다.</div>
       </div>
