@@ -24,9 +24,11 @@ body{
   color:var(--ink);background:var(--white);
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
+  word-break:keep-all;
+  overflow-wrap:break-word;
 }
 .deck{display:flex;height:100vh;transition:transform .55s cubic-bezier(.65,0,.35,1);will-change:transform}
-.slide{flex:0 0 100vw;height:100vh;overflow-y:auto;position:relative;padding:64px 6vw 90px;display:flex;flex-direction:column;justify-content:center}
+.slide{flex:0 0 100vw;height:100vh;overflow-y:auto;position:relative;padding:92px 6vw 56px;display:flex;flex-direction:column;justify-content:center}
 .wrap{max-width:1060px;margin:0 auto;width:100%}
 
 /* ---------- common ---------- */
@@ -44,13 +46,15 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
 .navbtn{position:fixed;top:50%;transform:translateY(-50%);z-index:50;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.92);color:var(--ink);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.08);transition:.2s}
 .navbtn:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
 #prev{left:18px}#next{right:18px}
-.dots{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:50}
-.dots button{width:8px;height:8px;border-radius:50%;border:none;background:#D5DBDF;cursor:pointer;transition:.25s;padding:0}
-.dots button.on{width:26px;border-radius:100px;background:var(--brand)}
-.counter{position:fixed;top:20px;right:26px;z-index:50;font-size:13px;font-weight:700;color:var(--sub);background:rgba(255,255,255,.9);border:1px solid var(--line);padding:6px 14px;border-radius:100px}
-.progress{position:fixed;top:0;left:0;height:3px;background:var(--brand);z-index:60;transition:width .5s ease}
-.brandtag{position:fixed;top:20px;left:26px;z-index:50;font-size:13px;font-weight:800;color:var(--ink);background:rgba(255,255,255,.9);border:1px solid var(--line);padding:6px 14px;border-radius:100px}
-.brandtag b{color:var(--brand-deep)}
+.topnav{position:fixed;top:0;left:0;right:0;height:56px;z-index:70;display:flex;align-items:center;gap:16px;padding:0 20px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tn-brand{font-size:14px;font-weight:800;color:var(--ink);white-space:nowrap;flex:0 0 auto}
+.tn-brand b{color:var(--brand-deep)}
+.tn-tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.tn-tabs::-webkit-scrollbar{display:none}
+.tn-tabs button{flex:0 0 auto;border:none;background:none;font-family:inherit;font-size:13px;font-weight:600;color:var(--sub);padding:7px 11px;border-radius:100px;cursor:pointer;white-space:nowrap;transition:.2s}
+.tn-tabs button:hover{color:var(--ink);background:var(--soft)}
+.tn-tabs button.on{background:var(--brand);color:#fff;font-weight:700}
+.progress{position:fixed;top:56px;left:0;height:3px;background:var(--brand);z-index:60;transition:width .5s ease}
 
 /* ---------- cover ---------- */
 .cover{background:linear-gradient(150deg,#FFFFFF 0%,#F2FBFE 55%,#DFF5FD 100%)}
@@ -175,10 +179,18 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
 /* ================= MOBILE : vertical scroll ================= */
 @media (max-width:1023px){
   .deck{display:block;height:auto;transform:none !important}
-  .slide{flex:none;width:100%;height:auto;min-height:auto;overflow:visible;padding:56px 20px;justify-content:flex-start}
-  .navbtn,.dots,.counter{display:none !important}
+  .slide{flex:none;width:100%;height:auto;min-height:auto;overflow:visible;padding:48px 20px;justify-content:flex-start;scroll-margin-top:54px}
+  .navbtn{display:none !important}
   .progress{display:none}
-  .brandtag{position:absolute}
+  body{padding-top:50px}
+  .topnav{height:50px;padding:0 14px;gap:10px}
+  .tn-brand{font-size:13px}
+  .tn-tabs{margin-left:0;flex:1}
+  .tn-tabs button{font-size:12px;padding:6px 10px}
+  h1 br,h2 br,.closing .quote br{display:none}
+  h1{font-size:clamp(26px,7.4vw,34px);line-height:1.28}
+  h2{font-size:clamp(20px,5.8vw,26px);line-height:1.35}
+  .lead{font-size:14.5px}
   .slide{border-bottom:1px solid var(--line)}
   .cover{min-height:92vh;display:flex;justify-content:center}
   .proj-grid,.philo-note,.howgrid{grid-template-columns:1fr}
@@ -199,8 +211,23 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
 </head>
 <body>
 
-<div class="brandtag">노건우 <b>Portfolio</b></div>
-<div class="counter" id="counter">1 / 12</div>
+<nav class="topnav">
+  <div class="tn-brand">노건우 <b>Portfolio</b></div>
+  <div class="tn-tabs" id="tnTabs">
+    <button>홈</button>
+    <button>적합성</button>
+    <button>철학</button>
+    <button>경험 요약</button>
+    <button>P1 퍼널</button>
+    <button>P2 소재</button>
+    <button>P3 GA4</button>
+    <button>P4 콘텐츠</button>
+    <button>P5 로컬</button>
+    <button>일하는 방식</button>
+    <button>기여</button>
+    <button>마무리</button>
+  </div>
+</nav>
 <div class="progress" id="progress"></div>
 
 <div class="deck" id="deck">
@@ -211,7 +238,7 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
   <div class="wrap">
     <div class="kicker">Portfolio 2026</div>
     <div class="role">지원 직무 · 오늘의집 광고 운영 담당자 (Retail Media)</div>
-    <h1>노건우 <span>Portfolio</span><br>광고 운영과 성과 개선을<br>연결하는 주니어 마케터</h1>
+    <h1>노건우 <span>Portfolio</span><br> 광고 운영과 성과 개선을<br> 연결하는 주니어 마케터</h1>
     <div class="sub">광고 소재 기획 · 다매체 광고 운영 · GA4/UTM 기반 퍼널 분석 · 소재 성과 구조화</div>
     <div class="tags" style="margin-top:26px">
       <span class="badge">Meta</span><span class="badge">당근</span><span class="badge">Google</span><span class="badge">Kakao</span><span class="badge">Naver</span><span class="badge">GA4 / UTM</span>
@@ -229,7 +256,7 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
 <section class="slide">
   <div class="wrap">
     <div class="kicker">01 · Position Fit Summary</div>
-    <h2>공고가 요구하는 역량,<br>이미 실무에서 하고 있습니다</h2>
+    <h2>공고가 요구하는 역량,<br> 이미 실무에서 하고 있습니다</h2>
     <p class="lead">오늘의집 광고 운영 담당자에게 필요한 꼼꼼한 운영, 소재 관리, 일정 관리, 광고 데이터 이해 역량을 갖추고 있습니다.</p>
     <div class="fit">
       <div class="fit-head"><span>공고에서 요구하는 역량</span><span></span><span>나의 경험</span></div>
@@ -261,7 +288,7 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
 <section class="slide" style="background:var(--soft)">
   <div class="wrap">
     <div class="kicker">02 · Work Philosophy</div>
-    <h2>광고는 세팅, 검수, 데이터 관리까지<br>정확해야 성과가 납니다</h2>
+    <h2>광고는 세팅, 검수, 데이터 관리까지<br> 정확해야 성과가 납니다</h2>
     <p class="lead">저는 광고 운영을 단순 집행이 아니라 “소재가 정확히 노출되고, 성과가 추적되며, 다음 개선으로 이어지는 과정”으로 바라봅니다.</p>
     <div class="sec-label">광고 운영 프로세스</div>
     <div class="flow">
@@ -514,7 +541,7 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
 <section class="slide closing">
   <div class="wrap">
     <div class="kicker">Closing</div>
-    <div class="quote">저는 광고를<br>“<span>성과를 만드는 운영의 축적</span>”이라고 생각합니다.</div>
+    <div class="quote">저는 광고를<br> “<span>성과를 만드는 운영의 축적</span>”이라고 생각합니다.</div>
     <p>오늘의집 미디어세일즈팀에서 꼼꼼한 광고 운영과 데이터 기반 개선 역량을 바탕으로, 파트너사의 성장과 오늘의집 리테일미디어 사업 확장에 기여하겠습니다.</p>
     <div class="sig">노건우 드림<small>gksrufvnem@gmail.com · 010-0000-0000</small></div>
   </div>
@@ -524,35 +551,35 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
 
 <button class="navbtn" id="prev" aria-label="이전">‹</button>
 <button class="navbtn" id="next" aria-label="다음">›</button>
-<div class="dots" id="dots"></div>
 
 <script>
 (function(){
   var deck=document.getElementById('deck'),
-      slides=deck.children.length,
+      sections=deck.children,
+      slides=sections.length,
       cur=0,
-      dots=document.getElementById('dots'),
-      counter=document.getElementById('counter'),
+      tabs=document.getElementById('tnTabs').querySelectorAll('button'),
       progress=document.getElementById('progress'),
       mq=window.matchMedia('(min-width:1024px)');
 
-  for(var i=0;i<slides;i++){
-    var b=document.createElement('button');
-    b.dataset.i=i;
-    b.addEventListener('click',function(){go(+this.dataset.i);});
-    dots.appendChild(b);
+  function setActive(n){
+    for(var i=0;i<tabs.length;i++) tabs[i].className=(i===n)?'on':'';
+    var t=tabs[n];
+    if(t) t.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+    progress.style.width=((n+1)/slides*100)+'%';
   }
   function render(){
     deck.style.transform='translateX(-'+(cur*100)+'vw)';
-    counter.textContent=(cur+1)+' / '+slides;
-    progress.style.width=((cur+1)/slides*100)+'%';
-    var ds=dots.children;
-    for(var i=0;i<ds.length;i++) ds[i].className=(i===cur)?'on':'';
+    setActive(cur);
   }
   function go(n){
-    if(!mq.matches) return;
-    cur=Math.max(0,Math.min(slides-1,n));
-    render();
+    n=Math.max(0,Math.min(slides-1,n));
+    if(mq.matches){cur=n;render();}
+    else sections[n].scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  for(var i=0;i<tabs.length;i++){
+    tabs[i].dataset.i=i;
+    tabs[i].addEventListener('click',function(){go(+this.dataset.i);});
   }
   document.getElementById('prev').addEventListener('click',function(){go(cur-1);});
   document.getElementById('next').addEventListener('click',function(){go(cur+1);});
@@ -577,8 +604,27 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
     go(e.deltaY>0?cur+1:cur-1);
     setTimeout(function(){wheelLock=false;},650);
   },{passive:true});
-  mq.addEventListener('change',function(){cur=0;render();});
-  render();
+  var spy=null;
+  function setupSpy(){
+    if(spy){spy.disconnect();spy=null;}
+    if(mq.matches) return;
+    spy=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(en.isIntersecting){
+          var idx=Array.prototype.indexOf.call(sections,en.target);
+          if(idx>-1) setActive(idx);
+        }
+      });
+    },{rootMargin:'-40% 0px -55% 0px',threshold:0});
+    for(var i=0;i<sections.length;i++) spy.observe(sections[i]);
+  }
+  mq.addEventListener('change',function(){
+    cur=0;
+    if(mq.matches) render(); else setActive(0);
+    setupSpy();
+  });
+  if(mq.matches) render(); else setActive(0);
+  setupSpy();
 })();
 </script>
 </body>
