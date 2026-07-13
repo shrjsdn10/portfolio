@@ -178,6 +178,20 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
 .connect{margin-top:20px;background:var(--brand-soft);border:1px dashed var(--brand);border-radius:14px;padding:16px 20px;font-size:14px;line-height:1.65;font-weight:600}
 .connect b{color:var(--brand-deep)}
 
+/* ---------- conclusion strip ---------- */
+.concl{margin-top:20px;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.concl>div{padding:13px 15px;border-left:1px solid var(--line)}
+.concl>div:first-child{border-left:none}
+.concl b{display:block;font-size:10.5px;font-weight:800;color:var(--brand-deep);letter-spacing:.08em;margin-bottom:5px}
+.concl p{font-size:12.5px;line-height:1.55;font-weight:600;color:var(--ink)}
+
+/* ---------- evidence slot ---------- */
+.evidence{margin-top:14px;border:2px dashed #C9D4DA;border-radius:14px;padding:24px 16px;text-align:center;color:var(--sub);font-size:13px;font-weight:600;background:#FBFCFD}
+
+/* ---------- ohouse connect ---------- */
+.ohouse{margin-top:22px;background:var(--brand-soft);border-left:4px solid var(--brand);border-radius:0 12px 12px 0;padding:14px 18px;font-size:14px;font-weight:600;line-height:1.65}
+.ohouse b{color:var(--brand-deep)}
+
 /* ================= MOBILE : vertical scroll ================= */
 @media (max-width:1023px){
   .deck{display:block;height:auto;transform:none !important}
@@ -209,6 +223,10 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
   .fit-req{padding:12px 16px;font-size:13px;background:var(--soft);border-bottom:1px solid var(--line)}
   .fit-my{padding:12px 16px 14px;background:var(--brand-soft)}
   .hf-h b{font-size:15px}
+  .concl{grid-template-columns:1fr 1fr}
+  .concl>div{border-top:1px solid var(--line)}
+  .concl>div:nth-child(-n+2){border-top:none}
+  .concl>div:nth-child(odd){border-left:none}
   .cover .contact{flex-direction:column}
 }
 @media (min-width:1024px){
@@ -225,11 +243,11 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
     <button>적합성</button>
     <button>철학</button>
     <button>경험 요약</button>
-    <button>P1 퍼널</button>
-    <button>P2 소재</button>
-    <button>P3 GA4</button>
-    <button>P4 콘텐츠</button>
-    <button>P5 로컬</button>
+    <button>P1</button>
+    <button>P2</button>
+    <button>P3</button>
+    <button>P4</button>
+    <button>P5</button>
     <button>일하는 방식</button>
     <button>기여</button>
     <button>마무리</button>
@@ -267,7 +285,7 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
       <div class="fit-head"><span>공고에서 요구하는 역량</span><span></span><span>나의 경험</span></div>
       <div class="fit-row">
         <div class="fit-req"><b>광고 소재 세팅 및 검수</b></div><div class="fit-arrow">→</div>
-        <div class="fit-my">Meta 광고 소재 <b class="hl">0개</b> 분류 및 운영</div>
+        <div class="fit-my">Meta 광고 소재 <b class="hl">410여 개</b> 분류 및 운영</div>
       </div>
       <div class="fit-row">
         <div class="fit-req"><b>광고 일정 관리</b></div><div class="fit-arrow">→</div>
@@ -316,88 +334,84 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
     <div class="meta-strip">
       <span class="badge">운영 기간 2026.02 ~ 현재</span>
       <span class="badge">운영 매체 Meta · 당근 · Google · Kakao · Naver</span>
-      <span class="badge">광고비 2026.04~07 약 0만 원</span>
+      <span class="badge">최근 30일 광고비 약 287만 원</span>
     </div>
     <div class="stats">
-      <div class="stat brand"><div class="n">0<small>건</small></div><div class="l">최근 30일 상담 리드</div></div>
-      <div class="stat brand"><div class="n">0<small>건</small></div><div class="l">최근 30일 최종 개통 전환</div></div>
-      <div class="stat brand"><div class="n">0<small>%</small></div><div class="l">랜딩 방문 대비 클릭률</div></div>
-      <div class="stat"><div class="n">0<small>개</small></div><div class="l">Meta 광고 소재 분류·구조화</div></div>
-      <div class="stat"><div class="n">0<small>명</small></div><div class="l">리틀리 랜딩 방문자 (최근 30일)</div></div>
-      <div class="stat"><div class="n">0<small>회</small></div><div class="l">랜딩 클릭 (최근 30일)</div></div>
-      <div class="stat"><div class="n">0<small>만 원</small></div><div class="l">최근 30일 광고비 집행</div></div>
-      <div class="stat"><div class="n">5<small>개</small></div><div class="l">동시 운영 광고 매체</div></div>
-      <div class="stat"><div class="n">0<small>%대</small></div><div class="l">Meta 상위 소재 CTR</div></div>
+      <div class="stat brand"><div class="n">368<small>건</small></div><div class="l">누적 문의 (2026.03~07)</div></div>
+      <div class="stat brand"><div class="n">68<small>건</small></div><div class="l">누적 개통 (2026.03~07)</div></div>
+      <div class="stat brand"><div class="n">108<small>건</small></div><div class="l">최근 30일 문의</div></div>
+      <div class="stat"><div class="n">19<small>건</small></div><div class="l">최근 30일 개통 (개통률 17.6%)</div></div>
+      <div class="stat"><div class="n">26,602<small>원</small></div><div class="l">최근 30일 CPL (운영 기준선)</div></div>
+      <div class="stat"><div class="n">23,186<small>명</small></div><div class="l">리틀리 랜딩 방문 (최근 30일)</div></div>
     </div>
+    <p class="lead" style="margin-top:14px;font-size:13px">* 문의·개통은 문의접수 대장 기준 전체 성과이며, 매체별 성과는 클릭·카톡 행동·CPC/CPL 관리 기준으로 구분해 운영했습니다.</p>
   </div>
 </section>
 
 <!-- 5. PROJECT 01 -->
 <section class="slide" style="background:var(--soft)">
   <div class="wrap">
-    <div class="kicker">Project 01</div>
+    <div class="kicker">Project 01 · 테스트 판단력</div>
     <h2>가격확인 전환 퍼널 광고 운영</h2>
-    <div class="msgbar">고객의 구매 장벽을 광고 메시지로 풀고, 랜딩 이후 상담 리드까지 이어지는 전환 흐름을 관리했습니다.</div>
+    <div class="msgbar">고객이 문의를 망설이는 이유를 가설로 세우고, 카피 테스트로 검증했습니다.</div>
     <div class="proj-grid">
       <div>
         <div class="sec-label">문제 정의</div>
         <p class="lead" style="font-size:14.5px">휴대폰 구매 고객은 <b class="hl">가격 불신, 상담 부담, 자급제 비교 심리</b> 때문에 바로 문의하지 않는 경향이 있었습니다.</p>
         <div class="sec-label">실행 내용</div>
         <ul class="blocklist">
-          <li>“<b>상담 전 가격 확인</b>” 메시지 중심 광고 소재 기획</li>
-          <li>가격확인형 · 손실회피형 · 무료폰형 · 기종 강조형 <b>카피 테스트</b></li>
-          <li>소재별 <b>CTR · CPC · CPL</b> 비교</li>
-          <li>랜딩 클릭 → 카카오톡 클릭 → 상담 문의 <b>흐름 추적</b></li>
+          <li>“가격을 먼저 보여주면 문의 부담이 줄 것”이라는 <b>가설</b>로 “상담 전 가격 확인” 소재 기획</li>
+          <li>가격확인형 · 손실회피형 · 무료폰형 · 유심변경형 <b>카피 테스트</b></li>
+          <li>CTR이 높아도 CPL이 나쁜 소재는 <b>중단하고 예산을 상위 소재로 재배분</b></li>
+          <li>CPL 26,602원을 <b>운영 기준선</b>으로 소재별 CTR·CPC·문의 전환 흐름 비교</li>
         </ul>
       </div>
       <div>
-        <div class="sec-label">전환 퍼널</div>
-        <div class="hfunnel"><div class="hf-inner">
-          <div class="hf-heads" style="--n:6">
-            <div class="hf-h"><b>0</b><em>1. 광고 클릭</em></div>
-            <div class="hf-h"><b>0</b><em>2. 랜딩 방문</em><i>이탈 0▼ (0%)</i></div>
-            <div class="hf-h"><b>0</b><em>3. 가격 확인</em><i>이탈 0▼ (0%)</i></div>
-            <div class="hf-h"><b>0</b><em>4. 카카오톡 클릭</em><i>이탈 0▼ (0%)</i></div>
-            <div class="hf-h"><b>0</b><em>5. 상담 문의</em><i>이탈 0▼ (0%)</i></div>
-            <div class="hf-h"><b>0</b><em>6. 개통</em><i>이탈 0▼ (0%)</i></div>
-          </div>
-          <svg viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true">
-            <defs><linearGradient id="fg1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D6F4FD"/><stop offset=".5" stop-color="#35C5F0"/><stop offset="1" stop-color="#0C8CE9"/></linearGradient></defs>
-            <line x1="100" y1="0" x2="100" y2="200" stroke="#EAEDEF"/>
-            <line x1="200" y1="0" x2="200" y2="200" stroke="#EAEDEF"/>
-            <line x1="300" y1="0" x2="300" y2="200" stroke="#EAEDEF"/>
-            <line x1="400" y1="0" x2="400" y2="200" stroke="#EAEDEF"/>
-            <line x1="500" y1="0" x2="500" y2="200" stroke="#EAEDEF"/>
-            <path d="M0,20 L50,20 C100,20 100,31 150,31 C200,31 200,47 250,47 C300,47 300,65 350,65 C400,65 400,77.5 450,77.5 C500,77.5 500,87 550,87 L600,87 L600,113 L550,113 C500,113 500,122.5 450,122.5 C400,122.5 400,135 350,135 C300,135 300,153 250,153 C200,153 200,169 150,169 C100,169 100,180 50,180 L0,180 Z" fill="url(#fg1)"/>
-          </svg>
-        </div></div>
+        <div class="sec-label">결과</div>
+        <p class="lead" style="font-size:14.5px">최근 30일 기준 광고비 287만 원, 문의 108건, 개통 19건을 추적하며 <b class="hl">CTR이 아닌 CPL과 전환 흐름을 기준으로</b> 소재 운영을 판단했습니다.</p>
         <div class="kpis">
-          <div class="kpi"><div class="n">0<small>건</small></div><div class="l">30일 상담 리드</div></div>
-          <div class="kpi"><div class="n">0<small>건</small></div><div class="l">최종 개통 전환</div></div>
-          <div class="kpi"><div class="n">0<small>%대</small></div><div class="l">상위 소재 CTR (Meta)</div></div>
+          <div class="kpi"><div class="n">108<small>건</small></div><div class="l">최근 30일 문의</div></div>
+          <div class="kpi"><div class="n">19<small>건</small></div><div class="l">최근 30일 개통 (17.6%)</div></div>
+          <div class="kpi"><div class="n">26,602<small>원</small></div><div class="l">CPL (운영 기준선)</div></div>
+        </div>
+        <div class="concl">
+          <div><b>역할</b><p>광고 소재 기획·운영 전담</p></div>
+          <div><b>실행</b><p>4개 유형 카피 테스트</p></div>
+          <div><b>결과</b><p>30일 문의 108건 · 개통 19건</p></div>
+          <div><b>배운 점</b><p>판단 기준을 CTR이 아닌 CPL로 통일해야 예산 낭비가 없다</p></div>
         </div>
       </div>
     </div>
+    <div class="ohouse"><b>오늘의집에서는</b> — 파트너 소재도 “무엇을 앞세울 때 유저가 반응하는가”를 데이터로 검증하는 같은 구조라고 생각합니다.</div>
   </div>
 </section>
 
 <!-- 6. PROJECT 02 -->
 <section class="slide">
   <div class="wrap">
-    <div class="kicker">Project 02</div>
+    <div class="kicker">Project 02 · 운영·검수 체계</div>
     <h2>광고 소재 라이브러리 구축</h2>
-    <div class="msgbar">광고 소재를 감으로 관리하지 않고, 반복 테스트가 가능한 구조로 정리했습니다.</div>
+    <div class="msgbar">410여 개 소재를 오류 없이 운영하기 위한 관리·검수 체계를 만들었습니다.</div>
     <div class="proj-grid">
       <div>
         <div class="sec-label">문제 정의</div>
         <p class="lead" style="font-size:14.5px">소재 수가 많아질수록 어떤 카피와 후킹 구조가 성과가 좋았는지 <b class="hl">추적하기 어려웠습니다.</b></p>
-        <div class="bignum"><span class="l">Meta 광고 소재 분류·구조화</span><span class="n">0<small>개</small></span></div>
+        <div class="bignum"><span class="l">Meta 광고 소재 분류·관리</span><span class="n">410<small>+</small></span></div>
         <div class="sec-label">실행 내용</div>
         <ul class="blocklist">
-          <li>후킹 유형 · 기종 · USP · 매체 · 성과 지표별 정리</li>
-          <li>CTR · CPC · CPL 기준으로 <b>소재 성과 비교</b></li>
-          <li>성과가 좋은 메시지 구조를 <b>다음 소재 기획에 반영</b></li>
+          <li>후킹 유형 · 기종 · USP · 매체 · 성과 지표별 <b>분류 기준 설계</b></li>
+          <li>CTR · CPC · CPL 기준으로 소재 성과 비교, <b>상위 구조를 다음 기획에 재사용</b></li>
+          <li>링크 · UTM · 소재명 오류를 <b>라이브 전 사전 검수 단계에서 발견·수정</b>하는 루틴 운영</li>
         </ul>
+        <div class="sec-label">라이브 전 검수 체크리스트</div>
+        <table class="libtable">
+          <tr><th>검수 항목</th><th>확인 내용</th></tr>
+          <tr><td>소재명 규칙</td><td>네이밍 규칙 일치 여부 (채널_캠페인_유형_날짜)</td></tr>
+          <tr><td>링크·UTM</td><td>랜딩 URL과 UTM 파라미터 일치 확인</td></tr>
+          <tr><td>랜딩 연결</td><td>클릭 → 도착 페이지 정상 작동 테스트</td></tr>
+          <tr><td>노출 상태</td><td>집행중/중단 상태와 실제 노출 일치 확인</td></tr>
+          <tr><td>규격</td><td>비율·용량·텍스트 비중 등 매체별 규격 확인</td></tr>
+        </table>
       </div>
       <div>
         <div class="sec-label">소재 분류 체계</div>
@@ -408,61 +422,88 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
           <tr><td>USP</td><td><span class="chip">저렴한 가격</span><span class="chip">빠른 상담</span><span class="chip">매장 방문 전 확인</span><span class="chip more">···</span></td></tr>
           <tr><td>성과 지표</td><td><span class="chip">CTR</span><span class="chip">CPC</span><span class="chip">CPL</span><span class="chip">문의 전환</span></td></tr>
         </table>
-        <div class="connect" style="margin-top:16px">분류 → 성과 비교 → 기획 반영의 <b>반복 테스트 루프</b>를 만들어, 새 소재를 만들 때마다 “무엇이 통했는지”를 근거로 시작합니다.</div>
+        <div class="evidence">📷 광고 운영 시트 · 소재 라이브러리 실제 화면 캡처 자리</div>
+        <div class="concl">
+          <div><b>역할</b><p>소재 관리 체계 설계</p></div>
+          <div><b>실행</b><p>분류 기준 + 검수 루틴 구축</p></div>
+          <div><b>결과</b><p>사전 검수로 라이브 후 수정 최소화</p></div>
+          <div><b>배운 점</b><p>체계는 다음 사람도 쓸 수 있는 문서여야 한다</p></div>
+        </div>
       </div>
     </div>
+    <div class="ohouse"><b>오늘의집에서는</b> — 보장형 광고의 소재 검수·일정 관리에 바로 적용할 수 있는 루틴입니다.</div>
   </div>
 </section>
 
 <!-- 7. PROJECT 03 -->
 <section class="slide" style="background:var(--soft)">
   <div class="wrap">
-    <div class="kicker">Project 03</div>
+    <div class="kicker">Project 03 · 추적 설계</div>
     <h2>GA4 · UTM 기반 랜딩 퍼널 분석</h2>
-    <div class="msgbar">광고 클릭 이후 사용자가 어디에서 이탈하고, 어디에서 문의로 이어지는지 추적했습니다.</div>
+    <div class="msgbar">광고비가 어디서 성과로 바뀌는지 보이도록 추적 구조를 직접 설계했습니다.</div>
     <div class="proj-grid">
       <div>
         <div class="sec-label">실행 내용</div>
         <ul class="blocklist">
-          <li>GA4와 UTM으로 <b>매체별 유입 구분</b></li>
-          <li>가격확인 페이지 도착 · 카카오톡 클릭 <b>이벤트 추적</b></li>
-          <li>리틀리 랜딩 방문자·클릭 데이터 분석</li>
-          <li>광고 성과와 <b>랜딩 행동 데이터를 함께 비교</b></li>
+          <li>매체·캠페인별 <b>UTM 네이밍 규칙</b>을 정해 유입 구분</li>
+          <li>가격확인 도착 · 카카오톡 클릭을 <b>GA4 이벤트로 정의</b></li>
+          <li>리틀리(랜딩 허브) 방문·클릭과 <b>GA4 행동 데이터를 함께 비교</b></li>
+          <li>이탈이 큰 구간을 확인해 <b>랜딩 구성·광고 메시지 개선 근거</b>로 사용</li>
         </ul>
+        <div class="sec-label">UTM 네이밍 규칙 (실제 운영 예시)</div>
+        <table class="libtable">
+          <tr><th>광고 소재</th><th>utm_campaign</th></tr>
+          <tr><td>가격확인</td><td>avoiding_loss</td></tr>
+          <tr><td>무료폰</td><td>free_phone</td></tr>
+          <tr><td>유심변경</td><td>usim</td></tr>
+        </table>
+        <div class="sec-label">리틀리 랜딩 지표 (최근 30일)</div>
         <div class="kpis">
-          <div class="kpi"><div class="n">0<small>%</small></div><div class="l">방문 대비 클릭률</div></div>
-          <div class="kpi"><div class="n">0<small>건</small></div><div class="l">카카오톡 클릭 추적</div></div>
+          <div class="kpi"><div class="n">23,186<small>명</small></div><div class="l">방문</div></div>
+          <div class="kpi"><div class="n">7,528<small>회</small></div><div class="l">클릭</div></div>
+          <div class="kpi"><div class="n">32.5<small>%</small></div><div class="l">클릭률</div></div>
         </div>
       </div>
       <div>
-        <div class="sec-label">랜딩 행동 퍼널 (최근 30일)</div>
+        <div class="sec-label">GA4 이벤트 설계</div>
+        <table class="libtable">
+          <tr><th>이벤트</th><th>측정 내용</th></tr>
+          <tr><td>citymarket_arrival</td><td>가격확인 페이지 도착 — 핵심 관심 지표</td></tr>
+          <tr><td>kakao_chat_click</td><td>카카오톡 상담 클릭 — 문의 직전 행동</td></tr>
+        </table>
+        <div class="sec-label">GA4 행동 퍼널 (최근 30일)</div>
         <div class="hfunnel"><div class="hf-inner">
-          <div class="hf-heads" style="--n:4">
-            <div class="hf-h"><b>0</b><em>1. 랜딩 방문</em></div>
-            <div class="hf-h"><b>0</b><em>2. 가격확인 도착</em><i>이탈 0▼ (0%)</i></div>
-            <div class="hf-h"><b>0</b><em>3. 랜딩 클릭</em><i>이탈 0▼ (0%)</i></div>
-            <div class="hf-h"><b>0</b><em>4. 카카오톡 클릭</em><i>이탈 0▼ (0%)</i></div>
+          <div class="hf-heads" style="--n:3">
+            <div class="hf-h"><b>약 20,700</b><em>1. GA4 세션</em></div>
+            <div class="hf-h"><b>10,591</b><em>2. 가격확인 도착</em><i>이탈 약 48.8%▼</i></div>
+            <div class="hf-h"><b>1,175</b><em>3. 카카오톡 클릭</em><i>이탈 약 88.9%▼</i></div>
           </div>
           <svg viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true">
             <defs><linearGradient id="fg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D6F4FD"/><stop offset=".5" stop-color="#35C5F0"/><stop offset="1" stop-color="#0C8CE9"/></linearGradient></defs>
-            <line x1="150" y1="0" x2="150" y2="200" stroke="#EAEDEF"/>
-            <line x1="300" y1="0" x2="300" y2="200" stroke="#EAEDEF"/>
-            <line x1="450" y1="0" x2="450" y2="200" stroke="#EAEDEF"/>
-            <path d="M0,20 L75,20 C150,20 150,50.5 225,50.5 C300,50.5 300,65 375,65 C450,65 450,82.5 525,82.5 L600,82.5 L600,117.5 L525,117.5 C450,117.5 450,135 375,135 C300,135 300,149.5 225,149.5 C150,149.5 150,180 75,180 L0,180 Z" fill="url(#fg2)"/>
+            <line x1="200" y1="0" x2="200" y2="200" stroke="#EAEDEF"/>
+            <line x1="400" y1="0" x2="400" y2="200" stroke="#EAEDEF"/>
+            <path d="M0,20 L100,20 C200,20 200,59 300,59 C400,59 400,93 500,93 L600,93 L600,107 L500,107 C400,107 400,141 300,141 C200,141 200,180 100,180 L0,180 Z" fill="url(#fg2)"/>
           </svg>
         </div></div>
-        <div class="connect">이탈이 큰 구간을 확인해 <b>랜딩 구성과 광고 메시지를 함께 개선</b>하는 근거로 사용했습니다.</div>
+        <div class="evidence">📷 GA4 이벤트 · 탐색 보고서 캡처 자리</div>
       </div>
     </div>
+    <div class="concl">
+      <div><b>역할</b><p>추적 구조 설계</p></div>
+      <div><b>실행</b><p>UTM 규칙 + GA4 이벤트 정의</p></div>
+      <div><b>결과</b><p>랜딩 이후 행동을 구간별로 추적 가능</p></div>
+      <div><b>배운 점</b><p>측정 설계가 먼저고 대시보드는 그다음</p></div>
+    </div>
+    <div class="ohouse"><b>오늘의집에서는</b> — 파트너 캠페인 성과 리포트도 결국 일관된 네이밍과 이벤트 설계에서 시작한다고 생각합니다.</div>
   </div>
 </section>
 
 <!-- 8. PROJECT 04 -->
 <section class="slide">
   <div class="wrap">
-    <div class="kicker">Project 04</div>
+    <div class="kicker">Project 04 · 사용자 맥락 이해</div>
     <h2>콘텐츠 반응 기반 광고 소재 개선</h2>
-    <div class="msgbar">SNS 콘텐츠 반응 데이터를 광고 카피와 소재 기획에 반영했습니다.</div>
+    <div class="msgbar">콘텐츠 맥락 안에서 광고가 자연스러워야 반응한다는 것을 배운 경험입니다.</div>
     <div class="proj-grid">
       <div>
         <div class="sec-label">실행 내용</div>
@@ -481,9 +522,9 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
           <div class="sns"><div class="p">AVG VIEW</div><div class="n">1,099회</div><div class="l">평균 조회수</div></div>
           <div class="sns"><div class="p">RETENTION</div><div class="n">118.7%</div><div class="l">평균 시청 지속률</div></div>
         </div>
-        <div class="connect"><b>오늘의집 직무 연결</b> — 콘텐츠와 커머스가 연결된 오늘의집 환경에서, 광고 소재가 사용자 맥락에 맞게 보이도록 운영하는 데 도움이 되는 경험입니다.</div>
       </div>
     </div>
+    <div class="ohouse"><b>오늘의집에서는</b> — 오늘의집처럼 콘텐츠와 커머스가 붙어 있는 지면에서는, 광고가 ‘광고처럼’ 보이는 순간 성과가 꺾인다는 걸 숏폼 운영에서 체감했습니다.</div>
   </div>
 </section>
 
@@ -523,6 +564,7 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
         </div>
       </div>
     </div>
+    <div class="ohouse"><b>오늘의집에서는</b> — 지역 검색에서 매장 문의로 이어지는 흐름을 설계해본 경험은, 파트너의 오프라인 프로모션이 온라인 지면에서 자연스럽게 이어지도록 돕는 데 쓰일 수 있다고 생각합니다.</div>
   </div>
 </section>
 
@@ -546,11 +588,11 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
     <div class="kicker">05 · Contribution</div>
     <h2>오늘의집에서 이렇게 기여하겠습니다</h2>
     <div class="contrib">
-      <div class="item"><div class="ico">✓</div><p>보장형 광고 소재 세팅과 검수를 <b class="hl">정확하게</b> 수행하겠습니다.</p></div>
-      <div class="item"><div class="ico">🗓</div><p>광고 일정과 운영 현황을 <b class="hl">체계적으로</b> 관리하겠습니다.</p></div>
-      <div class="item"><div class="ico">📑</div><p>계약서 발송, 정산 보조, 운영 서포트 업무를 <b class="hl">책임감 있게</b> 처리하겠습니다.</p></div>
-      <div class="item"><div class="ico">🏠</div><p>파트너사의 브랜드와 프로모션이 <b class="hl">사용자 경험 안에서 자연스럽게</b> 노출되도록 돕겠습니다.</p></div>
-      <div class="item"><div class="ico">📊</div><p>광고 운영 데이터를 정리해 팀이 <b class="hl">더 빠르고 정확하게 의사결정</b>할 수 있도록 지원하겠습니다.</p></div>
+      <div class="item"><div class="ico">✓</div><p><b class="hl">보장형 소재 검수</b> — 소재명/규격/링크/노출 상태 체크리스트로 더블체크하겠습니다.</p></div>
+      <div class="item"><div class="ico">🗓</div><p><b class="hl">파트너 프로모션 일정 관리</b> — 캠페인 캘린더와 운영 시트로 누락을 방지하겠습니다.</p></div>
+      <div class="item"><div class="ico">📑</div><p><b class="hl">계약·정산 보조</b> — 숫자가 틀리면 신뢰가 무너진다는 기준으로 정확도를 우선하겠습니다. 매체별 광고비 결제·충전 내역을 월별로 정리하며, 운영 비용과 집행 데이터를 함께 확인한 경험이 있습니다.</p></div>
+      <div class="item"><div class="ico">📊</div><p><b class="hl">운영 데이터 정리</b> — 팀이 바로 쓸 수 있는 형태의 시트·리포트로 가공하겠습니다.</p></div>
+      <div class="item"><div class="ico">💬</div><p><b class="hl">파트너 커뮤니케이션 보조</b> — 소재 상태, 일정, 수정 요청사항을 명확히 정리해 운영 혼선을 최소화하겠습니다.</p></div>
     </div>
   </div>
 </section>
