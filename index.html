@@ -102,13 +102,15 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
 .meta-strip{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
 
 /* ---------- funnel ---------- */
-.pyfunnel{margin:26px auto 0;width:min(100%,460px);aspect-ratio:1/0.87;display:flex;flex-direction:column;gap:3px}
-.pband{position:relative;flex:1}
-.pband i{position:absolute;inset:0}
-.pband span{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:#fff;font-weight:700;font-size:13px;line-height:1.25;text-align:center}
-.pband span b{font-size:11px;font-weight:700;opacity:.92}
-.pband.tip span{justify-content:flex-start;padding-top:6px;font-size:12px}
-.pband.tip span b{font-size:10.5px}
+.hfunnel{margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 14px 6px;overflow-x:auto}
+.hf-inner{min-width:520px}
+.hf-heads{display:grid;grid-template-columns:repeat(var(--n),1fr)}
+.hf-h{padding:0 10px 8px;border-left:1px solid var(--line)}
+.hf-h:first-child{border-left:none}
+.hf-h b{display:block;font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.hf-h em{display:block;font-style:normal;font-size:11.5px;font-weight:700;color:var(--ink);margin-top:2px}
+.hf-h i{display:block;font-style:normal;font-size:10.5px;font-weight:700;color:#E5484D;margin-top:2px}
+.hfunnel svg{display:block;width:100%;height:150px}
 .proj-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:start;margin-top:8px}
 .blocklist{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:14px}
 .blocklist li{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.55;font-weight:500}
@@ -205,7 +207,7 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
   .fit-req,.fit-my{border:none;border-radius:0}
   .fit-req{padding:12px 16px;font-size:13px;background:var(--soft);border-bottom:1px solid var(--line)}
   .fit-my{padding:12px 16px 14px;background:var(--brand-soft)}
-  .pyfunnel{max-width:340px}
+  .hf-h b{font-size:15px}
   .cover .contact{flex-direction:column}
 }
 @media (min-width:1024px){
@@ -349,14 +351,25 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
       </div>
       <div>
         <div class="sec-label">전환 퍼널</div>
-        <div class="pyfunnel">
-          <div class="pband"><i style="background:#8ADDF8;clip-path:polygon(0% 0,100% 0,91.7% 100%,8.3% 100%)"></i><span>광고 클릭</span></div>
-          <div class="pband"><i style="background:#5FD0F5;clip-path:polygon(8.3% 0,91.7% 0,83.3% 100%,16.7% 100%)"></i><span>랜딩 방문</span></div>
-          <div class="pband"><i style="background:#35C5F0;clip-path:polygon(16.7% 0,83.3% 0,75% 100%,25% 100%)"></i><span>가격 확인</span></div>
-          <div class="pband"><i style="background:#14B4EA;clip-path:polygon(25% 0,75% 0,66.7% 100%,33.3% 100%)"></i><span>카카오톡 클릭</span></div>
-          <div class="pband"><i style="background:#0AA5D8;clip-path:polygon(33.3% 0,66.7% 0,58.3% 100%,41.7% 100%)"></i><span>상담 문의<b>0건</b></span></div>
-          <div class="pband tip"><i style="background:#0887C2;clip-path:polygon(41.7% 0,58.3% 0,50% 100%)"></i><span>개통<b>0건</b></span></div>
-        </div>
+        <div class="hfunnel"><div class="hf-inner">
+          <div class="hf-heads" style="--n:6">
+            <div class="hf-h"><b>0</b><em>1. 광고 클릭</em></div>
+            <div class="hf-h"><b>0</b><em>2. 랜딩 방문</em><i>이탈 0▼ (0%)</i></div>
+            <div class="hf-h"><b>0</b><em>3. 가격 확인</em><i>이탈 0▼ (0%)</i></div>
+            <div class="hf-h"><b>0</b><em>4. 카카오톡 클릭</em><i>이탈 0▼ (0%)</i></div>
+            <div class="hf-h"><b>0</b><em>5. 상담 문의</em><i>이탈 0▼ (0%)</i></div>
+            <div class="hf-h"><b>0</b><em>6. 개통</em><i>이탈 0▼ (0%)</i></div>
+          </div>
+          <svg viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true">
+            <defs><linearGradient id="fg1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D6F4FD"/><stop offset=".5" stop-color="#35C5F0"/><stop offset="1" stop-color="#0C8CE9"/></linearGradient></defs>
+            <line x1="100" y1="0" x2="100" y2="200" stroke="#EAEDEF"/>
+            <line x1="200" y1="0" x2="200" y2="200" stroke="#EAEDEF"/>
+            <line x1="300" y1="0" x2="300" y2="200" stroke="#EAEDEF"/>
+            <line x1="400" y1="0" x2="400" y2="200" stroke="#EAEDEF"/>
+            <line x1="500" y1="0" x2="500" y2="200" stroke="#EAEDEF"/>
+            <path d="M0,20 L50,20 C100,20 100,31 150,31 C200,31 200,47 250,47 C300,47 300,65 350,65 C400,65 400,77.5 450,77.5 C500,77.5 500,87 550,87 L600,87 L600,113 L550,113 C500,113 500,122.5 450,122.5 C400,122.5 400,135 350,135 C300,135 300,153 250,153 C200,153 200,169 150,169 C100,169 100,180 50,180 L0,180 Z" fill="url(#fg1)"/>
+          </svg>
+        </div></div>
         <div class="kpis">
           <div class="kpi"><div class="n">0<small>건</small></div><div class="l">30일 상담 리드</div></div>
           <div class="kpi"><div class="n">0<small>건</small></div><div class="l">최종 개통 전환</div></div>
@@ -422,12 +435,21 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
       </div>
       <div>
         <div class="sec-label">랜딩 행동 퍼널 (최근 30일)</div>
-        <div class="pyfunnel">
-          <div class="pband"><i style="background:#8ADDF8;clip-path:polygon(0% 0,100% 0,87.5% 100%,12.5% 100%)"></i><span>랜딩 방문<b>0명 · 0%</b></span></div>
-          <div class="pband"><i style="background:#4CCBF3;clip-path:polygon(12.5% 0,87.5% 0,75% 100%,25% 100%)"></i><span>가격확인 도착<b>0건 · 0%</b></span></div>
-          <div class="pband"><i style="background:#14B4EA;clip-path:polygon(25% 0,75% 0,62.5% 100%,37.5% 100%)"></i><span>랜딩 클릭<b>0회 · 0%</b></span></div>
-          <div class="pband tip"><i style="background:#0887C2;clip-path:polygon(37.5% 0,62.5% 0,50% 100%)"></i><span>카카오톡 클릭<b>0건 · 0%</b></span></div>
-        </div>
+        <div class="hfunnel"><div class="hf-inner">
+          <div class="hf-heads" style="--n:4">
+            <div class="hf-h"><b>0</b><em>1. 랜딩 방문</em></div>
+            <div class="hf-h"><b>0</b><em>2. 가격확인 도착</em><i>이탈 0▼ (0%)</i></div>
+            <div class="hf-h"><b>0</b><em>3. 랜딩 클릭</em><i>이탈 0▼ (0%)</i></div>
+            <div class="hf-h"><b>0</b><em>4. 카카오톡 클릭</em><i>이탈 0▼ (0%)</i></div>
+          </div>
+          <svg viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true">
+            <defs><linearGradient id="fg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D6F4FD"/><stop offset=".5" stop-color="#35C5F0"/><stop offset="1" stop-color="#0C8CE9"/></linearGradient></defs>
+            <line x1="150" y1="0" x2="150" y2="200" stroke="#EAEDEF"/>
+            <line x1="300" y1="0" x2="300" y2="200" stroke="#EAEDEF"/>
+            <line x1="450" y1="0" x2="450" y2="200" stroke="#EAEDEF"/>
+            <path d="M0,20 L75,20 C150,20 150,50.5 225,50.5 C300,50.5 300,65 375,65 C450,65 450,82.5 525,82.5 L600,82.5 L600,117.5 L525,117.5 C450,117.5 450,135 375,135 C300,135 300,149.5 225,149.5 C150,149.5 150,180 75,180 L0,180 Z" fill="url(#fg2)"/>
+          </svg>
+        </div></div>
         <div class="connect">이탈이 큰 구간을 확인해 <b>랜딩 구성과 광고 메시지를 함께 개선</b>하는 근거로 사용했습니다.</div>
       </div>
     </div>
