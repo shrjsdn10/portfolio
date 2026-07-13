@@ -200,8 +200,14 @@ h2{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.3;letter-spaci
   .stats{grid-template-columns:repeat(2,1fr)}
   .snsgrid{grid-template-columns:repeat(2,1fr)}
   .fit-head{display:none}
-  .fit-row{grid-template-columns:1fr;gap:0}
-  .fit-arrow{transform:rotate(90deg);padding:4px 0}
+  .fit{gap:14px}
+  .fit-row{grid-template-columns:1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .fit-arrow{display:none}
+  .fit-req,.fit-my{border:none;border-radius:0}
+  .fit-req{padding:12px 16px;font-size:13px;background:var(--soft);border-bottom:1px solid var(--line)}
+  .fit-req::before{content:"공고 요구";display:inline-block;font-size:10.5px;font-weight:800;color:var(--sub);letter-spacing:.08em;background:#fff;border:1px solid var(--line);border-radius:100px;padding:2px 8px;margin-right:8px;vertical-align:1px}
+  .fit-my{padding:12px 16px 14px;background:var(--brand-soft)}
+  .fit-my::before{content:"나의 경험";display:inline-block;font-size:10.5px;font-weight:800;color:#fff;letter-spacing:.08em;background:var(--brand);border-radius:100px;padding:2px 8px;margin-right:8px;vertical-align:1px}
   .fstep{grid-template-columns:96px 1fr;gap:10px}
   .fstep .fl{font-size:12px}
   .fstep .fv{grid-column:2;padding-left:2px}
